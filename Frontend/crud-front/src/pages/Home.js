@@ -24,17 +24,19 @@ export default function Home() {
   return (
 
     <div className="container ">
-        <dvi className= 'py-4'>
+        <div className= 'py-4'>
         <table className="table border shadow table table-striped table-hove">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">name</th>
-      <th scope="col">userName</th>
-      <th scope="col">email</th>
-    </tr>
-  </thead>
-  <tbody>
+
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">UserName</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
     {
       users.map(
         (user,index)=>(
@@ -43,6 +45,7 @@ export default function Home() {
           <td>{user.name}</td>
           <td>{user.userName}</td>
           <td>{user.email}</td>
+          <td></td>
         </tr>
 
           )
@@ -53,7 +56,7 @@ export default function Home() {
   </tbody>
 </table>
 
-        </dvi>
+        </div>
 
     </div>
   )
