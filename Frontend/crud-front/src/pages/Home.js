@@ -12,16 +12,10 @@ export default function Home() {
     },[] );
 
     const loadUsers =async ()=>{
-     const  user = {
-        "name" : "hiran",
-        "userName": "Hiran",
-        "email":"hgahuji@gmail"
-      
-       } 
-       
+     
 
-    const result =await axios.post("http://localhost:8080/user",user);
-    console.log(result.data);
+    const result =await axios.get("http://localhost:8080/users");
+    console.log(result);
    };
 
 
