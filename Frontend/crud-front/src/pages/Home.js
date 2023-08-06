@@ -1,8 +1,33 @@
-import React from 'react'
 
-export default function 
-() {
+import React , {  useEffect, useState } from "react";
+import axios from "axios";
+
+export default function Home() {
+
+  const [users, setUsers]= useState([]);  
+  
+
+    useEffect(()=>{
+      loadUsers();
+    },[] );
+
+    const loadUsers =async ()=>{
+     const  user = {
+        "name" : "hiran",
+        "userName": "Hiran",
+        "email":"hgahuji@gmail"
+      
+       }
+
+    const result =await axios.post("http://localhost:8080/user",user);
+    console.log(result.data);
+   };
+
+
+
+
   return (
+
     <div className="container ">
         <dvi className= 'py-4'>
         <table className="table border shadow table table-striped table-hove">
