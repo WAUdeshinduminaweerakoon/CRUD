@@ -1,8 +1,12 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddUser() {
+
+    let navigte=useNavigate()
     
-    const [user,setUsers] = useState({
+    const [user,setUser] = useState({
         name:"",
         userName:"",
         email:""
@@ -10,9 +14,16 @@ export default function AddUser() {
 
     const{name,userName,email}=user
     const onInputChange = (e)=>{
-        setUsers({...user, [e.target.name]:e.target.value})
+        setUser({...user, [e.target.name]:e.target.value})
 
-    }
+    };
+
+    const onSubmit = async(e)=>{
+        e.preventDefault();
+        await axios.post("http://localhost:8080/user",user);
+        navigte("/")
+
+    };
 
 
   return (
@@ -20,6 +31,7 @@ export default function AddUser() {
         <div class="row">
             <div class="col-md-6 offset-md-2 border p-3 mt-2 shadow">
                 <h2 className="text-center m-3">Register User</h2>
+                <from onSubmit={(e)=>onSubmit(e)}>
                 <div className="mb-3">
                     <label htmlFor="Name" className="form-label">
                         Name
@@ -55,6 +67,7 @@ export default function AddUser() {
                 </div>
                 <button type="submit" className="btn btn-outline-primary">submit</button>
                 <button type="submit" className="btn btn-outline-danger mx-2">Cancel</button>
+                </from>
             </div>
             
         </div>
