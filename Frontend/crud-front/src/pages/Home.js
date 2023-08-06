@@ -15,7 +15,7 @@ export default function Home() {
      
 
     const result =await axios.get("http://localhost:8080/users");
-    console.log(result);
+    console.log(result.data);
    };
 
 
