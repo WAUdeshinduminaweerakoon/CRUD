@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function AddUser() {
+    
+    const [user,setUsers] = useState({
+        name:"",
+        userName:"",
+        email:""
+})
+
+    const{name,userName,email}=user
+    const onInputChange = (e)=>{
+        setUsers({...user, [e.target.name]:e.target.value})
+
+    }
+
+
   return (
     <div className="container">
         <div class="row">
@@ -13,7 +27,9 @@ export default function AddUser() {
                     <input type={"text"}
                      className="form-control"
                      placeholder="Enter Your name"
-                     name = "name"/>
+                     name = "name"
+                     value={name}
+                     onChange={(e)=>onInputChange(e)}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="UserName" className="form-label">
@@ -22,7 +38,9 @@ export default function AddUser() {
                     <input type={"text"}
                      className="form-control"
                      placeholder="Enter Your username"
-                     name = "userName"/>
+                     name = "userName"
+                     value={userName}
+                     onChange={(e)=>onInputChange(e)}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="Email" className="form-label">
@@ -31,8 +49,12 @@ export default function AddUser() {
                     <input type={"text"}
                      className="form-control"
                      placeholder="Enter Your e-mail address"
-                     name = "email"/>
+                     name = "email"
+                     value={email}
+                     onChange={(e)=>onInputChange(e)}/>
                 </div>
+                <button type="submit" className="btn btn-outline-primary">submit</button>
+                <button type="submit" className="btn btn-outline-danger mx-2">Cancel</button>
             </div>
             
         </div>
