@@ -17,7 +17,8 @@ export default function Home() {
         "userName": "Hiran",
         "email":"hgahuji@gmail"
       
-       }
+       } 
+       
 
     const result =await axios.post("http://localhost:8080/user",user);
     console.log(result.data);
