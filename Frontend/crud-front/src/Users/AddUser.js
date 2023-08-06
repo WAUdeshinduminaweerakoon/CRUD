@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function AddUser() {
 
@@ -31,7 +31,7 @@ export default function AddUser() {
         <div class="row">
             <div class="col-md-6 offset-md-2 border p-3 mt-2 shadow">
                 <h2 className="text-center m-3">Register User</h2>
-                <from onSubmit={(e)=>onSubmit(e)}>
+                <form onSubmit={(e)=>onSubmit(e)}>
                 <div className="mb-3">
                     <label htmlFor="Name" className="form-label">
                         Name
@@ -66,11 +66,12 @@ export default function AddUser() {
                      onChange={(e)=>onInputChange(e)}/>
                 </div>
                 <button type="submit" className="btn btn-outline-primary">submit</button>
-                <button type="submit" className="btn btn-outline-danger mx-2">Cancel</button>
-                </from>
+                <Link className="btn btn-outline-danger mx-2" to="/">Cancel</Link>
+                </form>
             </div>
             
         </div>
     </div>
   )
 }
+{/* <Link className="btn btn-outline-light" to="/Adduser">Add Users</Link> */}
