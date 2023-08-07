@@ -1,6 +1,9 @@
 package com.full.stack.CRUD.controller;
+
+import com.full.stack.CRUD.exception.UserNotFoundException;
 import com.full.stack.CRUD.model.User;
 import com.full.stack.CRUD.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +25,12 @@ public class UserController {
     @GetMapping("users")
     List<User> getAllUsers(){
         return userRepository.findAll();
+    }
+
+    @GetMapping("/user/{id}")
+    User getUserById(@PathVariable Long id){
+        return userRepository.findById(id)
+                .orElseThrow(()-> new UserNotFoundException(id));
     }
 
 }
